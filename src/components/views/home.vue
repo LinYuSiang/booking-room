@@ -7,16 +7,16 @@
             <h1>BooKing Room</h1>
           </div>
           <div style="display: flex">
-            <div style="padding: 23px">
-              <p class="h5 mb-2">
+            <div style="padding: 1rem">
+              
                 <b-icon icon="instagram" style="margin-right: 15px"></b-icon>
-              </p>
-              <p class="h5 mb-2">
+              
+              <br>
                 <b-icon icon="facebook" style="margin-right: 15px"></b-icon>
-              </p>
+              
             </div>
-            <div style="border-left-style: solid; padding-left: 17px">
-              <p class="h5 mb-2">
+            <div style="border-left-style: solid; padding-left: 1rem">
+              <p class="h6 mb-2">
                 <b-icon
                   icon="telephone-fill"
                   style="margin-right: 15px"
@@ -138,7 +138,7 @@ export default {
 }
 .title {
   background-color: aliceblue;
-  padding: 4rem 6rem 4rem 6rem;
+  padding: 4vw 6vh 4vw 6vh;
   background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
   box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.6);
@@ -149,7 +149,7 @@ export default {
 }
 .box1 div {
   color: white;
-  margin-top: 30px;
+  margin-top: 3vh;
 }
 .box1 p {
   margin-right: 10px;
