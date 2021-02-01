@@ -1,5 +1,5 @@
 <template >
-  <b-container fluid class="bv-example-row" style="padding: 0px" @touchmove="boxin($event)" @mousewheel="boxin($event)">
+  <b-container fluid style="padding: 0px !important;" @touchmove="boxin($event)" @mousewheel="boxin($event)">
     <section >
       <div class="bgimg">
         <div class="box1">
@@ -225,11 +225,11 @@ export default {
   animation: abc 1s ;
 }
 .updatas{
-  display: none;
+  /* display: none; */
   opacity: 0;
 }
 .updataes{
-   display: block;
+   /* display: block; */
   opacity: 1  !important;
 }
 </style>
