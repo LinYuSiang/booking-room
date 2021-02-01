@@ -6,7 +6,7 @@ import Roominfo from '@/components/views/roominfo'
 Vue.use(VueRouter)
 
 const router = new  VueRouter({
-    mode:'history',
+    // mode:'history',
     routes: [
         {
             path: '/index', //自訂路徑
