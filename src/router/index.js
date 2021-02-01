@@ -19,7 +19,7 @@ const router = new  VueRouter({
             component: Roominfo //選擇要對應的元件
         },
         {
-            path: '/', //自訂路徑
+            path: '/booking-room', //自訂路徑
             name: 'home', //設定名稱
             component: home //選擇要對應的元件
         }
