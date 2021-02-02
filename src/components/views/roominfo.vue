@@ -4,7 +4,7 @@
       <div>
         <b-carousel
           id="carousel-fade"
-          style="text-shadow: 0px 0px 2px #000; height: 80vh; width: 100%"
+          style="text-shadow: 0px 0px 2px #000; height: 30rem; width: 100%"
           fade
           controls
           indicators
@@ -13,7 +13,7 @@
           <b-carousel-slide
             :key="index"
             v-for="(item, index) in list.imageUrl"
-            style="height: 80vh"
+            style="height: 30rem"
             :caption="list.name"
             :img-src="item"
           ></b-carousel-slide>
@@ -22,9 +22,17 @@
     </section>
     <section>
       <div class="box2" v-if="fender">
-        <b-row style="padding: 50px">
-          <b-col cols="7" class="color">
+        <b-row style="padding: 2em">
+          <b-col xl="7" lg="7" md="7" sm="12" class="color" style="padding: 2em">
             <h3>{{ list.name }}</h3>
+          </b-col>
+          <b-col xl="5" lg="5" md="5" sm="12" class="color" style="padding: 2em">
+            <h5>平日(一 ~ 四) / NT.{{ list.normalDayPrice }}</h5>
+            <br />
+            <h6>假日(五 ~ 日) / NT.{{ list.holidayPrice }}</h6>
+          </b-col>
+          <b-col  xl="7" lg="7" md="7" sm="12" class="color" style=" padding: 2em">
+            
             <br />
             <ol>
               <li>
@@ -59,18 +67,18 @@
             </b-row>
           </b-col>
           <b-col
-            cols="5"
+             xl="5" lg="5" md="5" sm="12"
             class="color"
-            style="text-align: right; padding: 50px"
+            style="text-align: right; padding: 2em"
           >
-            <h5>平日(一 ~ 四) / NT.{{ list.normalDayPrice }}</h5>
-            <br />
-            <h6>假日(五 ~ 日) / NT.{{ list.holidayPrice }}</h6>
+            
             <b-row class="icon">
               <b-col
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"        
                 class="color"
                 :class="{ icont: status[11] }"
                 style="padding: 20px"
@@ -82,6 +90,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[10] }"
                 style="padding: 20px"
@@ -93,6 +103,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[3] }"
                 style="padding: 20px"
@@ -104,6 +116,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[1] }"
                 style="padding: 20px"
@@ -115,6 +129,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[0] }"
                 style="padding: 20px"
@@ -126,6 +142,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[8] }"
                 style="padding: 20px"
@@ -137,6 +155,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[4] }"
                 style="padding: 20px"
@@ -151,6 +171,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[6] }"
                 style="padding: 20px"
@@ -162,6 +184,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[2] }"
                 style="padding: 20px"
@@ -173,6 +197,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[7] }"
                 style="padding: 20px"
@@ -184,6 +210,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[9] }"
                 style="padding: 20px"
@@ -195,6 +223,8 @@
                 xl="3"
                 lg="4"
                 md="6"
+                sm="2"
+                cols="6"
                 class="color"
                 :class="{ icont: status[5] }"
                 style="padding: 20px"
@@ -610,5 +640,12 @@ text-align:center;
 }
 .mx-datepicker-range {
     width: 100% !important;
+}
+@media screen and (max-width:480px){ 
+ 
+.img-fluid {
+    max-width: 100%; 
+     height: 100% !important;
+}
 }
 </style>

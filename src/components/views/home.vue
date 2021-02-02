@@ -41,8 +41,8 @@
     </section>
     <section>
       <div class="box2">
-        <b-row style="padding: 158px">
-          <b-col xl="4" lg="6" class="updatas" :class="{updata:values, updataes:values}" v-for="(item, index) in items" :key="index">
+        <b-row style="padding: 2rem">
+          <b-col xl="4" lg="6" md="6" sm="6" class="updatas" :class="{updata:values, updataes:values}" v-for="(item, index) in items" :key="index">
             <div :id="item.name" class="img-item">
               <router-link  :to="({ name: 'roominfo', params: { userId: item.id }})"
                 ><b-img
@@ -50,6 +50,7 @@
                   rounded
                   :src="item.imageUrl"
                   alt="Image 1"
+                  sr
                 ></b-img
               ></router-link>
             </div>
@@ -160,7 +161,7 @@ export default {
   background-color: aliceblue;
 }
 .img-top {
-  height: 45vh;
+  height: 25rem;
   object-fit: cover;
   width: 100%;
     opacity: 1;
@@ -185,6 +186,7 @@ export default {
   overflow: hidden;
   box-shadow: 0px 0px 6px -0.4px;
   z-index: 10;
+  
 }
 .img-item::after {
   content: "more";
@@ -232,5 +234,30 @@ export default {
 .updataes{
    /* display: block; */
   opacity: 1  !important;
+}
+
+
+@media screen and (max-width:768px){ 
+ .img-top {
+  height: 20rem;
+  object-fit: cover;
+  width: 100%;
+    opacity: 1;
+  transition: all 0.5s ease-out;  
+}
+
+}
+@media screen and (max-width:480px){ 
+ .img-top {
+  height: 17rem;
+  object-fit: cover;
+  width: 100%;
+    opacity: 1;
+  transition: all 0.5s ease-out;
+}
+.img-fluid {
+    max-width: 100%; 
+     height: 100% !important;
+}
 }
 </style>
