@@ -7,7 +7,7 @@
             <h1>BooKing Room</h1>
           </div>
           <div style="display: flex">
-            <div style="padding: 1rem">
+            <div class="title-text">
               
                 <b-icon icon="instagram" style="margin-right: 15px"></b-icon>
               
@@ -15,7 +15,7 @@
                 <b-icon icon="facebook" style="margin-right: 15px"></b-icon>
               
             </div>
-            <div style="border-left-style: solid; padding-left: 1rem">
+            <div style="border-left-style: solid; padding-left: 1rem;    white-space: nowrap;">
               <p class="h6 mb-2">
                 <b-icon
                   icon="telephone-fill"
@@ -23,11 +23,11 @@
                 ></b-icon
                 >0987 654 321
               </p>
-              <p class="h5 mb-2">
+              <p class="h6 mb-2">
                 <b-icon icon="mailbox2" style="margin-right: 15px"></b-icon
                 >BookingRoom@gmail.com
               </p>
-              <p class="h5 mb-2">
+              <p class="h6 mb-2">
                 <b-icon
                   icon="house-door-fill"
                   style="margin-right: 15px"
@@ -235,6 +235,9 @@ export default {
    /* display: block; */
   opacity: 1  !important;
 }
+.title-text{
+padding: 1rem 0.5rem 0 3rem;
+}
 
 
 @media screen and (max-width:768px){ 
@@ -258,6 +261,9 @@ export default {
 .img-fluid {
     max-width: 100%; 
      height: 100% !important;
+}
+.title-text{
+padding: 1rem 0.5rem;
 }
 }
 </style>
