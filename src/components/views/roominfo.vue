@@ -266,14 +266,14 @@
       </div>
     </section>
     <section>
-      <div class="box2"></div>
+      <div ></div>
     </section>
 
     <b-modal size="xl" centered hide-footer v-if="modalShow" v-model="modalShow" title="Booking Room">
-      <div class="box2">
+      <div >
         <b-container fluid>
           <b-row>
-            <b-col cols="5" class="mobal-text">
+            <b-col xl="5" lg="5" md="5" sm="12" class="mobal-text">
               <form ref="form" style="color: white; font-size: 12px">
                 <b-form-group label="姓名：">
                   <b-form-input
@@ -323,7 +323,7 @@
                 </div>
               </form>
             </b-col>
-            <b-col cols="7" style="color:rgba(56, 71, 11);">
+            <b-col xl="7" lg="7" md="7" sm="12" style="color:rgba(56, 71, 11);">
               <div
                 style="
                   padding: 15px;
