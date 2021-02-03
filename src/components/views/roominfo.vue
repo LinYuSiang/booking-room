@@ -22,11 +22,11 @@
     </section>
     <section>
       <div class="box2" v-if="fender">
-        <b-row style="padding: 2em">
+        <b-row style=" padding: 2em">
           <b-col xl="7" lg="7" md="7" sm="12" class="color" style="padding: 2em">
             <h3>{{ list.name }}</h3>
           </b-col>
-          <b-col xl="5" lg="5" md="5" sm="12" class="color" style="padding: 2em">
+          <b-col xl="5" lg="5" md="5" sm="12" class="color price" style="text-align: right; padding: 2em">
             <h5>平日(一 ~ 四) / NT.{{ list.normalDayPrice }}</h5>
             <br />
             <h6>假日(五 ~ 日) / NT.{{ list.holidayPrice }}</h6>
@@ -69,7 +69,7 @@
           <b-col
              xl="5" lg="5" md="5" sm="12"
             class="color"
-            style="text-align: right; padding: 2em"
+            style="text-align: right; "
           >
             
             <b-row class="icon" style="white-space: nowrap;">
@@ -644,7 +644,9 @@ text-align:center;
     width: 100% !important;
 }
 @media screen and (max-width:480px){ 
- 
+ .price{
+   text-align: center  !important;
+ }
 .img-fluid {
     max-width: 100%; 
      height: 100% !important;
