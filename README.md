@@ -9,16 +9,16 @@
 5.RWD符合電腦螢幕、平板、手機板大小。  
 
 ## 使用技術
-vue.js
-bootstrap-vue
-vue-router
-fortawesome(icon插件)
-axios
-javascript
-css
-html
-RWD
-localstrage
+vue.js  
+bootstrap-vue  
+vue-router  
+fortawesome(icon插件)  
+axios  
+javascript  
+css  
+html  
+RWD  
+localstrage  
 
 ## 作品畫面
-![image](https://github.com/LinYuSiang/ortho-pwa/blob/master/pic/messageImage_1612367683502.jpg)
+![image](https://github.com/LinYuSiang/booking-room/pic/messageImage_1612367683502.jpg)
