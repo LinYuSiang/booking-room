@@ -2,12 +2,11 @@
 訂房網站 屬於個人作品 並非產學專案
 
 ## 作品簡介
-1.使用vue.js bootstrap-vue 等框架與UI插件製作網站
-#
-2.vue-router 進行畫面切換
-3.由axios串接API
-4.javascript過濾及處理從API得到的資料，並對DOM進行非同步渲染
-5.RWD符合電腦螢幕、平板、手機板大小。
+1.使用vue.js bootstrap-vue 等框架與UI插件製作網站  
+2.vue-router 進行畫面切換  
+3.由axios串接API  
+4.javascript過濾及處理從API得到的資料，並對DOM進行非同步渲染  
+5.RWD符合電腦螢幕、平板、手機板大小。  
 
 ## 使用技術
 vue.js
