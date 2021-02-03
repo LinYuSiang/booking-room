@@ -32,7 +32,7 @@ export default {
       if (window.scrollY >= 80) {
         this.values = true;
         console.log(123);
-      }else if(window.scrollY <= 200){
+      }else if(window.scrollY >= 80 || window.scrollY <= 200){
         this.values = false;
       }
     },

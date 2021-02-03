@@ -72,13 +72,13 @@
             style="text-align: right; padding: 2em"
           >
             
-            <b-row class="icon">
+            <b-row class="icon" style="white-space: nowrap;">
               <b-col
                 xl="3"
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"        
+                cols="4"        
                 class="color"
                 :class="{ icont: status[11] }"
                 style="padding: 20px"
@@ -91,7 +91,7 @@
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[10] }"
                 style="padding: 20px"
@@ -104,7 +104,7 @@
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[3] }"
                 style="padding: 20px"
@@ -117,7 +117,7 @@
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[1] }"
                 style="padding: 20px"
@@ -130,7 +130,7 @@
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[0] }"
                 style="padding: 20px"
@@ -143,20 +143,20 @@
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[8] }"
                 style="padding: 20px"
               >
                 <font-awesome-icon :icon="['fa', 'smoking-ban']" size="2x" />
-                <h6>禁止吸菸</h6>
+                <h6>禁菸</h6>
               </b-col>
               <b-col
                 xl="3"
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[4] }"
                 style="padding: 20px"
@@ -172,7 +172,7 @@
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[6] }"
                 style="padding: 20px"
@@ -185,7 +185,7 @@
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[2] }"
                 style="padding: 20px"
@@ -198,20 +198,20 @@
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[7] }"
                 style="padding: 20px"
               >
                 <font-awesome-icon :icon="['fa', 'concierge-bell']" size="2x" />
-                <h6>客房服務</h6>
+                <h6>客服</h6>
               </b-col>
               <b-col
                 xl="3"
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[9] }"
                 style="padding: 20px"
@@ -224,7 +224,7 @@
                 lg="4"
                 md="6"
                 sm="2"
-                cols="6"
+                cols="4"
                 class="color"
                 :class="{ icont: status[5] }"
                 style="padding: 20px"
@@ -233,33 +233,14 @@
                 <h6>寵物</h6>
               </b-col>
             </b-row>
-            <date-picker
-              class="datepicker"
-              placeholder="選擇訂房日期"
-              value-type="YYYY-MM-DD"
-              format="YYYY-MM-DD"
-              range
-              v-model="value1"
-              :default-value="new Date()"
-              :disabled-date="disabledBeforeTodayAndAfterAWeek"
-            >
-              <template v-slot:footer="{ emit }">
-                <div style="text-align: left">
-                  <button
-                    class="mx-btn mx-btn-text"
-                    @click="selectNextThreeDay(emit)"
-                  >
-                    enter
-                  </button>
-                </div>
-              </template></date-picker
-            >
+            
+            
           </b-col>
           <b-col xl="4" lg="4" md="4" class="color"></b-col>
           <b-col xl="4" lg="4" md="4" class="color" style="text-align: center">
             <b-button class="mobal" size="lg" @click="modal">我要訂房</b-button>
           </b-col>
-          <b-col xl="4" lg="4" md="4" class="color" style="text-align:right;padding: 25px;">
+          <b-col xl="4" lg="4" md="4" class="color" style="text-align:center;padding: 25px;">
               <b-button class="mobal" size="sm" @click="modal2">取消所有訂房</b-button>
           </b-col>
         </b-row>
@@ -274,6 +255,9 @@
         <b-container fluid>
           <b-row>
             <b-col xl="5" lg="5" md="5" sm="12" class="mobal-text">
+              <div class="mobel-title">
+                <h3 style="font-weight:800"> 訂房資訊 </h3>
+              </div>
               <form ref="form" style="color: white; font-size: 12px">
                 <b-form-group label="姓名：">
                   <b-form-input
@@ -292,23 +276,28 @@
                   ></b-form-input>
                 </b-form-group>
                 <b-form-group label="訂房日期：">
-                  <b-form-input
-                    disabled
-                    size="sm"
-                    id="name-input"
-                    v-model="startDay"
-                    required
-                  ></b-form-input>
+                 <date-picker
+              class="datepicker"
+              placeholder="選擇訂房日期"
+              value-type="YYYY-MM-DD"
+              format="YYYY-MM-DD"
+              range
+              v-model="value1"
+              :default-value="new Date()"
+              :disabled-date="disabledBeforeTodayAndAfterAWeek"
+            >
+              <template v-slot:footer="{ emit }">
+                <div style="text-align: left">
+                  <button
+                    class="mx-btn mx-btn-text"
+                    @click="selectNextThreeDay(emit)"
+                  >
+                    enter
+                  </button>
+                </div>
+              </template></date-picker>
                 </b-form-group>
-                <b-form-group label="退房日期：">
-                  <b-form-input
-                    disabled
-                    size="sm"
-                    id="name-input"
-                    v-model="endDay"
-                    required
-                  ></b-form-input>
-                </b-form-group>
+                
                 <div
                   style="
                     text-align: end;
@@ -486,14 +475,12 @@ export default {
     },
     modal: function () {
       console.log(123);
-      if (this.startDay == "") {
-        alert("請輸入訂房日期");
-      } else {
+     
         this.modalShow = !this.modalShow;
         console.log(this.value1);
-      }
+      
     },
-    room:function(){
+    room:async function(){
         axios
       .post(
         `https://challenge.thef2e.com/api/thef2e2019/stage6/room/${this.msg}`,{
@@ -512,7 +499,8 @@ export default {
         console.log(response);
         if (response.data.success ===true) {
             console.log(123);
-            this.modalShow2 = true
+              this.modalShow2 = true
+             
         }
       })
       .catch(function (error) {
@@ -539,6 +527,11 @@ export default {
     }
   },
   watch: {
+    modalShow2(){
+      if (this.modalShow2 == false) {
+        this.modalShow = false
+      }
+    },
     value1() {
       console.log(this.value1);
       this.startDay = this.value1[0];
@@ -592,6 +585,15 @@ export default {
 };
 </script>
 <style >
+.mobel-title{
+      text-align: center;
+    color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+
+}
 .img-fluid {
   position: absolute;
   top: 50%;

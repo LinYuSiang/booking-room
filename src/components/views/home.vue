@@ -43,8 +43,9 @@
       <div class="box2">
         <b-row style="padding: 2rem">
           <b-col xl="4" lg="6" md="6" sm="6" class="updatas" :class="{updata:values, updataes:values}" v-for="(item, index) in items" :key="index">
+            <div class="img-w">
             <div :id="item.name" class="img-item">
-              <router-link  :to="({ name: 'roominfo', params: { userId: item.id }})"
+              <router-link class="img-items" :to="({ name: 'roominfo', params: { userId: item.id }})"
                 ><b-img
                   class="img-top"
                   rounded
@@ -62,6 +63,7 @@
                 }}
                 / 假日</span
               >
+            </div>
             </div>
           </b-col>
         </b-row>
@@ -188,7 +190,7 @@ export default {
   z-index: 10;
   
 }
-.img-item::after {
+.img-items::after {
   content: "more";
   position: absolute;
   top: 0%;
@@ -201,7 +203,7 @@ export default {
   opacity: 0;
   font-weight: 600;
 }
-.img-item:hover::after {
+.img-items:hover::after {
   content: "more";
   position: absolute;
   top: 35%;
@@ -238,8 +240,13 @@ export default {
 .title-text{
 padding: 1rem 0.5rem 0 3rem;
 }
+@media screen and (min-width:1440px){ 
+ .img-w {
+  width: 400px;
+  margin: auto;
+}
 
-
+}
 @media screen and (max-width:768px){ 
  .img-top {
   height: 20rem;
