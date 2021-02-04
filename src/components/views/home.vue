@@ -166,12 +166,14 @@ export default {
   height: 25rem;
   object-fit: cover;
   width: 100%;
-    opacity: 1;
+     z-index: 10;
   transition: all 0.5s ease-out;
   
 }
 .img-top:hover {
   transform: scale(1.1, 1.1);
+  opacity: 0.5;
+  z-index: 10;
 
 }
 .room-text {
@@ -188,9 +190,12 @@ export default {
   overflow: hidden;
   box-shadow: 0px 0px 6px -0.4px;
   z-index: 10;
+  background-color: rgba(56, 71, 11);
   
 }
-.img-items::after {
+
+
+.img-items::before {
   content: "more";
   position: absolute;
   top: 0%;
@@ -203,12 +208,11 @@ export default {
   opacity: 0;
   font-weight: 600;
 }
-.img-items:hover::after {
+.img-items:hover::before {
   content: "more";
   position: absolute;
   top: 35%;
   left: 50%;
-    color: rgba(56, 71, 11);
   transform: translate(-50%, -50%);
   opacity: 1;
 }
