@@ -29,3 +29,5 @@ localstrage
 ## RWD (平板、手機大小)
 ![image](https://github.com/LinYuSiang/booking-room/blob/master/pic/messageImage_1612368051034.jpg)  
 ![image](https://github.com/LinYuSiang/booking-room/blob/master/pic/messageImage_1612368131290.jpg)  
+
+## 前端自動化部屬
