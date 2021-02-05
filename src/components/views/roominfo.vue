@@ -1,6 +1,11 @@
 <template>
   <b-container fluid style="padding: 0px !important">
     <section>
+      <div class="loading"  v-if="loading">
+      <b-spinner class="loading-color"   label="Spinning">
+      </b-spinner>
+      <h5>loading</h5>
+    </div>
       <div>
         <b-carousel
           id="carousel-fade"
@@ -420,6 +425,7 @@ export default {
       phoneNumber: "",
       modalShow2: false,
       modalShow3: false,
+      loading:true,
     };
   },
   beforeCreate: function () {
@@ -452,7 +458,8 @@ export default {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      })
+       .finally(() => (this.loading = false ,this.$store.commit("Loaded")));
   },
   updated() {
     this.fender = true; //避免畫面選染不正確
@@ -582,6 +589,9 @@ export default {
       console.log(this.price);
     },
   },
+  destroyed(){
+     this.$store.commit("Loaded");
+  }
 };
 </script>
 <style >

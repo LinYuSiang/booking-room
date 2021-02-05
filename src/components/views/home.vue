@@ -1,6 +1,12 @@
 <template >
-  <b-container fluid style="padding: 0px !important;" @touchmove="boxin($event)" @mousewheel="boxin($event)">
-    <section >
+  <b-container fluid style="padding: 0px !important" @touchmove="boxin($event)" @mousewheel="boxin($event)" >
+    <div class="loading"  v-if="loading">
+      <b-spinner class="loading-color"   label="Spinning">
+      </b-spinner>
+      <h5>loading</h5>
+    </div>
+
+    <section v-if="sLoading">
       <div class="bgimg">
         <div class="box1">
           <div class="title">
@@ -8,14 +14,18 @@
           </div>
           <div style="display: flex">
             <div class="title-text">
-              
-                <b-icon icon="instagram" style="margin-right: 15px"></b-icon>
-              
-              <br>
-                <b-icon icon="facebook" style="margin-right: 15px"></b-icon>
-              
+              <b-icon icon="instagram" style="margin-right: 15px"></b-icon>
+
+              <br />
+              <b-icon icon="facebook" style="margin-right: 15px"></b-icon>
             </div>
-            <div style="border-left-style: solid; padding-left: 1rem;    white-space: nowrap;">
+            <div
+              style="
+                border-left-style: solid;
+                padding-left: 1rem;
+                white-space: nowrap;
+              "
+            >
               <p class="h6 mb-2">
                 <b-icon
                   icon="telephone-fill"
@@ -39,31 +49,42 @@
         </div>
       </div>
     </section>
-    <section>
+    <section v-if="sLoading">
       <div class="box2">
         <b-row style="padding: 2rem">
-          <b-col xl="4" lg="6" md="6" sm="6" class="updatas" :class="{updata:values, updataes:values}" v-for="(item, index) in items" :key="index">
+          <b-col
+            xl="4"
+            lg="6"
+            md="6"
+            sm="6"
+            class="updatas"
+            :class="{ updata: values, updataes: values }"
+            v-for="(item, index) in items"
+            :key="index"
+          >
             <div class="img-w">
-            <div :id="item.name" class="img-item">
-              <router-link class="img-items" :to="({ name: 'roominfo', params: { userId: item.id }})"
-                ><b-img
-                  class="img-top"
-                  rounded
-                  :src="item.imageUrl"
-                  alt="Image 1"
-                  sr
-                ></b-img
-              ></router-link>
-            </div>
-            <div class="room-text">
-              <h4>{{ item.name }}</h4>
-              <span>
-                NT.{{ item.normalDayPrice }} / 平日 &emsp;&emsp; NT.{{
-                  item.holidayPrice
-                }}
-                / 假日</span
-              >
-            </div>
+              <div :id="item.name" class="img-item">
+                <router-link
+                  class="img-items"
+                  :to="{ name: 'roominfo', params: { userId: item.id } }"
+                  ><b-img
+                    class="img-top"
+                    rounded
+                    :src="item.imageUrl"
+                    alt="Image 1"
+                    sr
+                  ></b-img
+                ></router-link>
+              </div>
+              <div class="room-text">
+                <h4>{{ item.name }}</h4>
+                <span>
+                  NT.{{ item.normalDayPrice }} / 平日 &emsp;&emsp; NT.{{
+                    item.holidayPrice
+                  }}
+                  / 假日</span
+                >
+              </div>
             </div>
           </b-col>
         </b-row>
@@ -78,10 +99,13 @@ export default {
   data() {
     return {
       items: [],
-      values:false,
+      values: false,
+      loading: true,
+      sLoading: false,
     };
   },
   created: async function () {
+    
     await axios
       .get("https://challenge.thef2e.com/api/thef2e2019/stage6/rooms", {
         headers: {
@@ -97,24 +121,27 @@ export default {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      })
+      .finally(() => (this.loading = false ,this.sLoading = true ,this.$store.commit("Loaded"),console.log(this.$store.state.isLoading)));
   },
   mounted() {
-    
-    this.boxin()
+    this.boxin();
   },
-  methods:{
-    boxin(){
+  methods: {
+    boxin() {
       // console.log(window.scrollY);
       if (window.scrollY >= 100) {
         this.values = true;
       }
-    }
+    },
   },
-  watch:{
-    value(){
+  watch: {
+    value() {
       console.log(this.values);
-    }
+    },
+  },
+  destroyed(){
+     this.$store.commit("Loaded");
   }
 };
 </script>
@@ -166,15 +193,13 @@ export default {
   height: 25rem;
   object-fit: cover;
   width: 100%;
-     z-index: 10;
+  z-index: 10;
   transition: all 0.5s ease-out;
-  
 }
 .img-top:hover {
   transform: scale(1.1, 1.1);
   opacity: 0.5;
   z-index: 10;
-
 }
 .room-text {
   margin: 20px 0px 20px 0px;
@@ -191,9 +216,7 @@ export default {
   box-shadow: 0px 0px 6px -0.4px;
   z-index: 10;
   background-color: rgba(56, 71, 11);
-  
 }
-
 
 .img-items::before {
   content: "more";
@@ -202,7 +225,7 @@ export default {
   left: 50%;
   height: 0;
   transform: translate(-50%);
-  transition:all 0.5s ease-out;
+  transition: all 0.5s ease-out;
   color: #fff;
   font-size: 1.625rem;
   opacity: 0;
@@ -216,65 +239,75 @@ export default {
   transform: translate(-50%, -50%);
   opacity: 1;
 }
-@keyframes abc{
- 0% {
+@keyframes abc {
+  0% {
     opacity: 0;
     -webkit-transform: translateY(50px);
     -ms-transform: translateY(50px);
     transform: translateY(50px);
-}
-100% {
+  }
+  100% {
     opacity: 1;
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
+  }
 }
+.updata {
+  animation: abc 1s;
 }
-.updata{
-  animation: abc 1s ;
-}
-.updatas{
+.updatas {
   /* display: none; */
   opacity: 0;
 }
-.updataes{
-   /* display: block; */
-  opacity: 1  !important;
+.updataes {
+  /* display: block; */
+  opacity: 1 !important;
 }
-.title-text{
-padding: 1rem 0.5rem 0 3rem;
+.title-text {
+  padding: 1rem 0.5rem 0 3rem;
 }
-@media screen and (min-width:1440px){ 
- .img-w {
-  width: 400px;
-  margin: auto;
+.loading {
+  text-align: center;
+  
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  text-align: center;
 }
-
+.loading-color{
+  color: rgba(56, 71, 11)!important; 
 }
-@media screen and (max-width:768px){ 
- .img-top {
-  height: 20rem;
-  object-fit: cover;
-  width: 100%;
+@media screen and (min-width: 1440px) {
+  .img-w {
+    width: 400px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .img-top {
+    height: 20rem;
+    object-fit: cover;
+    width: 100%;
     opacity: 1;
-  transition: all 0.5s ease-out;  
+    transition: all 0.5s ease-out;
+  }
 }
-
-}
-@media screen and (max-width:480px){ 
- .img-top {
-  height: 17rem;
-  object-fit: cover;
-  width: 100%;
+@media screen and (max-width: 480px) {
+  .img-top {
+    height: 17rem;
+    object-fit: cover;
+    width: 100%;
     opacity: 1;
-  transition: all 0.5s ease-out;
-}
-.img-fluid {
-    max-width: 100%; 
-     height: 100% !important;
-}
-.title-text{
-padding: 1rem 0.5rem;
-}
+    transition: all 0.5s ease-out;
+  }
+  .img-fluid {
+    max-width: 100%;
+    height: 100% !important;
+  }
+  .title-text {
+    padding: 1rem 0.5rem;
+  }
 }
 </style>
