@@ -19,6 +19,7 @@ css
 html  
 RWD  
 localstrage  
+shell-deploy  
 
 ## 作品畫面
 ![image](https://github.com/LinYuSiang/booking-room/blob/master/pic/messageImage_1612367683502.jpg)  
@@ -30,5 +31,5 @@ localstrage
 ![image](https://github.com/LinYuSiang/booking-room/blob/master/pic/messageImage_1612368051034.jpg)  
 ![image](https://github.com/LinYuSiang/booking-room/blob/master/pic/messageImage_1612368131290.jpg)  
 
-## 前端自動化部屬(depoly-shell)
+## 前端自動化部屬(deploy-shell)
 shell編寫自動化部屬腳本
