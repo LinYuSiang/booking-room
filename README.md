@@ -19,7 +19,7 @@ css
 html  
 RWD  
 localstrage  
-shell-deploy  
+shell-deplo(自動化部屬)   
 
 ## 作品畫面
 ![image](https://github.com/LinYuSiang/booking-room/blob/master/pic/messageImage_1612367683502.jpg)  
