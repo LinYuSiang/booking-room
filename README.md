@@ -7,11 +7,13 @@
 3.由axios串接API  
 4.javascript過濾及處理從API得到的資料，並對DOM進行非同步渲染  
 5.RWD符合電腦螢幕、平板、手機板大小。  
+6.vuex控制各個畫面Loading狀態  
 
 ## 使用技術
 vue.js  
 bootstrap-vue  
 vue-router  
+vuex  
 fortawesome(icon插件)  
 axios  
 javascript  
@@ -19,7 +21,7 @@ css
 html  
 RWD  
 localstrage  
-shell-deplo(自動化部屬)   
+shell-deplo(自動化部屬)  
 
 ## 作品畫面
 ![image](https://github.com/LinYuSiang/booking-room/blob/master/pic/messageImage_1612367683502.jpg)  
