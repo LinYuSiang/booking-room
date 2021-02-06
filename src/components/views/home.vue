@@ -1,8 +1,12 @@
 <template >
-  <b-container fluid style="padding: 0px !important" @touchmove="boxin($event)" @mousewheel="boxin($event)" >
-    <div class="loading"  v-if="loading">
-      <b-spinner class="loading-color"   label="Spinning">
-      </b-spinner>
+  <b-container
+    fluid
+    style="padding: 0px !important"
+    @touchmove="boxin($event)"
+    @mousewheel="boxin($event)"
+  >
+    <div class="loading" v-if="loading">
+      <b-spinner class="loading-color" label="Spinning"> </b-spinner>
       <h5>loading</h5>
     </div>
 
@@ -52,6 +56,19 @@
     <section v-if="sLoading">
       <div class="box2">
         <b-row style="padding: 2rem">
+          <b-col cols="3" style="text-align: end;padding: 5px;">
+              <label for=""><b-icon icon="search" font-scale="1"></b-icon>：</label>
+          </b-col>
+          <b-col cols="9" style="margin-bottom:16px">
+            <div style="margin:auto">
+              <b-form-input
+                v-model="input"
+                placeholder="房間搜尋"
+                style="width:50vw"
+              ></b-form-input>
+            </div>
+          </b-col>
+        
           <b-col
             xl="4"
             lg="6"
@@ -59,7 +76,7 @@
             sm="6"
             class="updatas"
             :class="{ updata: values, updataes: values }"
-            v-for="(item, index) in items"
+            v-for="(item, index) in filterSearch"
             :key="index"
           >
             <div class="img-w">
@@ -102,10 +119,10 @@ export default {
       values: false,
       loading: true,
       sLoading: false,
+      input: "",
     };
   },
   created: async function () {
-    
     await axios
       .get("https://challenge.thef2e.com/api/thef2e2019/stage6/rooms", {
         headers: {
@@ -122,7 +139,14 @@ export default {
       .catch(function (error) {
         console.log(error);
       })
-      .finally(() => (this.loading = false ,this.sLoading = true ,this.$store.commit("Loaded"),console.log(this.$store.state.isLoading)));
+      .finally(
+        () => (
+          (this.loading = false),
+          (this.sLoading = true),
+          this.$store.commit("Loaded"),
+          console.log(this.$store.state.isLoading)
+        )
+      );
   },
   mounted() {
     this.boxin();
@@ -139,10 +163,23 @@ export default {
     value() {
       console.log(this.values);
     },
+    input(){}
   },
-  destroyed(){
-     this.$store.commit("Loaded");
-  }
+  destroyed() {
+    this.$store.commit("Loaded");
+  },
+  computed: {
+    filterSearch: function () {
+      if (this.input === "") {
+        return this.items;
+      } else {
+         return this.items.filter(
+          item => item.name.toLowerCase().includes(this.input.toLowerCase())
+        ); 
+       
+      }
+    },
+  },
 };
 </script>
 
@@ -259,25 +296,27 @@ export default {
 .updatas {
   /* display: none; */
   opacity: 0;
+  transition: all 0.5s ease-out;
 }
 .updataes {
   /* display: block; */
   opacity: 1 !important;
+  transition: all 0.5s ease-out;
 }
 .title-text {
   padding: 1rem 0.5rem 0 3rem;
 }
 .loading {
   text-align: center;
-  
+
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   text-align: center;
 }
-.loading-color{
-  color: rgba(56, 71, 11)!important; 
+.loading-color {
+  color: rgba(56, 71, 11) !important;
 }
 @media screen and (min-width: 1440px) {
   .img-w {
