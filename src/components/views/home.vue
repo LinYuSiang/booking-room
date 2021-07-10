@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-       <a href="#" onclick="window.open(' https://social-login-blush.vercel.app/?type=GBGoogleSocialLogin&clientId=GOOGLE_CLIENT_ID&redirectURL=REDIRECT_URL  https://social-login-blush.vercel.app/?type=GBFacebookSocialLogin&clientId=FACEBOOK_CLIENT_ID&redirectURL=REDIRECT_URL ', 'Yahoo', config='height=500,width=500');">開新視窗</a>
+      <GoogleLogin :params="params" :onSuccess="onSuccess" :onFailure="onFailure">Login</GoogleLogin>
     </section>
    
     <section v-if="sLoading">
@@ -114,6 +114,7 @@
 
 <script>
 import axios from "axios";
+import GoogleLogin from 'vue-google-login';
 export default {
   data() {
     return {
@@ -122,6 +123,15 @@ export default {
       loading: true,
       sLoading: false,
       input: "",
+       params: {
+                    client_id: "297231764328-gppjsavd38h4034vacv45e91lijuv1uc.apps.googleusercontent.com"
+                },
+                // only needed if you want to render the button with the google ui
+                renderParams: {
+                    width: 250,
+                    height: 50,
+                    longtitle: true
+                }
     };
   },
   created: async function () {
@@ -150,6 +160,9 @@ export default {
         )
       );
   },
+   components: {
+            GoogleLogin
+        },
   mounted() {
     this.boxin();
   },
@@ -160,6 +173,12 @@ export default {
         this.values = true;
       }
     },
+     onSuccess(googleUser) {
+            console.log(googleUser);
+ 
+            // This only gets the user information: id, name, imageUrl and email
+            console.log(googleUser.getBasicProfile());
+        }
   },
   watch: {
     value() {
