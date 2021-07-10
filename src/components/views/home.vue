@@ -52,7 +52,9 @@
           </div>
         </div>
       </div>
+       <a href="#" onclick="window.open(' https://social-login-blush.vercel.app/?type=GBGoogleSocialLogin&clientId=GOOGLE_CLIENT_ID&redirectURL=REDIRECT_URL  https://social-login-blush.vercel.app/?type=GBFacebookSocialLogin&clientId=FACEBOOK_CLIENT_ID&redirectURL=REDIRECT_URL ', 'Yahoo', config='height=500,width=500');">開新視窗</a>
     </section>
+   
     <section v-if="sLoading">
       <div class="box2">
         <b-row style="padding: 2rem">
